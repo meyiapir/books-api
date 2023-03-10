@@ -1,11 +1,19 @@
 package repository
 
-import "github.com/jmoiron/sqlx"
+import (
+	"booksApi"
+	"github.com/jmoiron/sqlx"
+)
 
 type Books interface {
+	GetAll() ([]booksApi.Book, error)
 }
 
 type Book interface {
+	GetById(id int) (booksApi.Book, error)
+	Create(input booksApi.Book) (int, error)
+	Update(id int, input booksApi.UpdateBookInput) error
+	Delete(id int) error
 }
 
 type Repository struct {
@@ -14,5 +22,8 @@ type Repository struct {
 }
 
 func NewRepository(db *sqlx.DB) *Repository {
-	return &Repository{}
+	return &Repository{
+		Books: NewBookPostgres(db),
+		Book:  NewBookPostgres(db),
+	}
 }

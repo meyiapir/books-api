@@ -24,12 +24,12 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		{
 			books.GET("/", h.getBooks)
 		}
-		book := api.Group("/book/:id")
+		book := api.Group("/book")
 		{
-			book.POST("/", h.createBook)
-			book.GET("/:book_id", h.getBook)
-			book.PUT("/:book_id", h.updateBook)
-			book.DELETE("/:book_id", h.deleteBook)
+			book.POST("/create", h.createBook)
+			book.GET("/:id", h.getBook)
+			book.PUT("/:id", h.updateBook)
+			book.DELETE("/:id", h.deleteBook)
 		}
 	}
 
