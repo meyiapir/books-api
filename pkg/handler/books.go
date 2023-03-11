@@ -2,7 +2,6 @@ package handler
 
 import (
 	"booksApi"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
@@ -20,7 +19,7 @@ func (h *Handler) getBooks(c *gin.Context) {
 
 func (h *Handler) getBook(c *gin.Context) {
 	// Вывод всех переданных параметров в запросе в print
-	fmt.Println(c.Request.URL.Query())
+	//fmt.Println(c.Request.URL.Query())
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		newErrorResponse(c, http.StatusBadRequest, "invalid book id param")
