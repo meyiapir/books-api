@@ -19,7 +19,8 @@ func main() {
 	if err := godotenv.Load(); err != nil {
 		log.Fatal("error loading env variables: ", err.Error())
 	}
-
+	//gin.SetMode(gin.ReleaseMode)
+	//fmt.Println("Starting server...")
 	db, err := repository.NewPostgresDB(repository.Config{
 		Host:     viper.GetString("db.host"),
 		Port:     viper.GetString("db.port"),
