@@ -19,3 +19,37 @@ If the application is launched for the first time, you need to apply migrations 
 ```bash
 migrate -path ./schema -database 'postgres://postgres:password@host:5436/postgres?sslmode=disable' up
 ```
+
+```
+goBooksApi
+├── cmd
+│   └── main.go
+├── config
+│   └── config.yml
+├── pkg
+│   ├── handler
+│   │   ├── books.go
+│   │   ├── handler.go
+│   │   └── response.go
+│   ├── repository
+│   │   ├── books_postgres.go
+│   │   ├── postgres.go
+│   │   └── repository.go
+│   └── service
+│       ├── bookService.go
+│       ├── booksService.go
+│       └── service.go
+├── schema
+│   ├── 000001_init.down.sql
+│   └── 000001_init.up.sql
+├── .env
+├── .gitignore
+├── book.go
+├── docker-compose.yml
+├── Dockerfile
+├── go.mod
+├── go.sum
+├── LICENSE
+└── server.go
+
+```
